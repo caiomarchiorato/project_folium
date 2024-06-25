@@ -8,7 +8,7 @@ import folium
 # Preparing the data
 # ===========================================
 columns = Config.columns
-clusters = get_clusters(cluster='dbscan')
+clusters = get_clusters(cluster='kmeans')
 cluster_colors = Config.cluster_colors
 
 # ===========================================

@@ -13,13 +13,14 @@ class Config:
         colormap.title_color = "white"
         return colormap
     
-    estadios = ["r5-r6","r2-r3", "r4-r5", "r1-r2", "r3-r4-2","r5","r1-r2","r3-r4-2"]
+    estadios = ["r5-r6", "r4-r5", "r3-r4-2","r5", "r3-r4-2"]
 
-    columns = ['fazenda','setor','talhao','estadio','soma_chuva','produtividade', 'textura', 'geometria']
+    columns = ['fazenda','setor','talhao','estadio','soma_chuva','produtividade', 'textura', 'geometria','dataplantioinicio', 'datacolheitainicio']
     
-    normalize_columns = ['soma_chuva', 'produtividade']
     date_columns = ['dataplantioinicio', 'datacolheitainicio']
-    
+
+    normalize_columns = ['produtividade','dataplantioinicio', 'datacolheitainicio']
+
     categorical_columns = ['textura']
     cluster_colors = ['#e41a1c', '#377eb8', '#4daf4a', '#984ea3', '#ff7f00', '#ffff33', '#a65628', '#f781bf']
     

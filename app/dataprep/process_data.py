@@ -34,9 +34,8 @@ class Pivoter(BaseEstimator, TransformerMixin):
                                     values=self.pivot_columns).reset_index()
             df_pivoted.columns = [f"{col[0]}_{col[1]}" if col[1] else col[0] for col in df_pivoted.columns.values]
             X = df_pivoted.copy()
-            X.drop(columns=['fazenda','setor','talhao'], inplace=True)
+            # X.drop(columns=['fazenda','setor','talhao'], inplace=True)
             X.dropna(inplace=True)
-            print(X.shape)
         else:
             X = X.dropna()
         return X
