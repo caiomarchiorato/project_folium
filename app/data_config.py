@@ -12,18 +12,18 @@ class Config:
         colormap.caption = "Produtividade de Soja (kg/ha)"
         colormap.title_color = "white"
         return colormap
-    
-    estadios = ["r5-r6", "r4-r5", "r3-r4-2","r5", "r3-r4-2"]
 
-    columns = ['fazenda','setor','talhao','estadio','soma_chuva','produtividade', 'textura', 'geometria','dataplantioinicio', 'datacolheitainicio']
+    estadios = ["r5-r6", "r4-r5", "r3-r4-2","r5", "r3-r4-2"]
+    
+    columns = ['estadio','soma_chuva','produtividade', 'textura', 'geometria','dataplantioinicio', 'datacolheitainicio']
     
     date_columns = ['dataplantioinicio', 'datacolheitainicio']
 
-    normalize_columns = ['produtividade','dataplantioinicio', 'datacolheitainicio']
+    exclude_normalized_columns = ['geometria']
 
     categorical_columns = ['textura']
     cluster_colors = ['#e41a1c', '#377eb8', '#4daf4a', '#984ea3', '#ff7f00', '#ffff33', '#a65628', '#f781bf']
     
     safra = ['Safra 23/24', 
-            # 'Safra 21/22', 'Safra 22/23'
+            'Safra 21/22', 'Safra 22/23'
             ]

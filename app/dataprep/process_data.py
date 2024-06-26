@@ -67,20 +67,19 @@ class CategoricalEncoder(BaseEstimator, TransformerMixin):
         return X
     
 class SelectiveScaler(BaseEstimator, TransformerMixin):
-    def __init__(self, columns: list[str]=None):
-        self.columns = columns
+    def __init__(self, exclude_columns: list[str]=None):
+        self.exclude_columns = exclude_columns if exclude_columns is not None else []
         self.scaler = StandardScaler()
     
     def fit(self, X: pd.DataFrame, y=None):
-        if self.columns:
-            self.scaler.fit(X[self.columns])
+        self.columns_to_scale = [col for col in X.columns if col not in self.exclude_columns]
+        if self.columns_to_scale:
+            self.scaler.fit(X[self.columns_to_scale])
         return self
     
     def transform(self, X: pd.DataFrame):
         X = X.copy()
-        scaler = StandardScaler()
-        for column in self.columns:
-            if column in X.columns:
-                X[column] = scaler.fit_transform(X[column].values.reshape(-1, 1))
+        if self.columns_to_scale:
+            X[self.columns_to_scale] = self.scaler.transform(X[self.columns_to_scale])
         return X
     
